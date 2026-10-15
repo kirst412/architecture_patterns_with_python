@@ -1,3 +1,11 @@
+from model import Batch, OrderLine, allocate
+from datetime import date, timedelta
+import pytest
+
+today = date.today()
+tomorrow = today + timedelta(days=1)
+later = tomorrow + timedelta(days=10)
+
 
 def test_prefers_current_stock_batches_to_shipments():
     in_stock_batch = Batch("in-stock-batch", "RETRO-CLOCK", 100, eta=None)
